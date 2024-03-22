@@ -12,6 +12,26 @@ const Dashboardheader: React.FC = () => {
                 <Link href="/">Home</Link>
         	</Button>
 
+            <Button 
+            variant={"outline"}
+            className='m-2'
+            >
+                <Link href="/admin">Admin</Link>
+        	</Button>
+
+            <Button 
+            variant={"outline"}
+            >
+                <Link href="/files">Files</Link>
+        	</Button>
+
+            <Button 
+            variant={"outline"}
+            className='m-2'
+            >
+                <Link href="/notes">Notes</Link>
+        	</Button>
+
         </header>
     );
 };
