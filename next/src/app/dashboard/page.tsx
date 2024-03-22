@@ -8,7 +8,7 @@ import Chat from './_components/Chat';
 const DashboardPage: React.FC = () => {
   return (
     <DashboardLayout >
-      <div style={{ display: 'flex', height: '100vh' }}>
+      <div className="flex flex-1 overflow-hidden">
           <Sidebar />
           <Canvas />
           <Chat />
