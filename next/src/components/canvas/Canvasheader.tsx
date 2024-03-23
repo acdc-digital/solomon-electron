@@ -9,24 +9,29 @@ interface CanvasHeaderProps {
     title: string; // You can add more props as needed
 }
 
-const CanvasHeader: React.FC<CanvasHeaderProps> = ({ title }) => {
+// Pass onClick callbacks for each button
+const CanvasHeader: React.FC<CanvasHeaderProps & { onAdminClick: () => void, onNotesClick: () => void, onFilesClick: () => void }> = ({ title, onAdminClick, onNotesClick, onFilesClick }) => {
+    // Modify your Button components to call the provided callbacks on click
     return (
         <div className="px-4 py-1 border-b flex items-center">
 			<div className='flex m-2'>
 				<Button 
 					className='mr-2'
-					variant={"outline"} >
-					<Link href="/">Admin</Link> 
+					variant={"outline"} 
+					onClick={onAdminClick}>
+    				Admin
 				</Button>
 
 				<Button 
 					className='mr-2'
-					variant={"outline"} >
-					<Link href="/">Notes</Link> 
+					variant={"outline"} 
+					onClick={onAdminClick}>
+    				Files 
 				</Button>
 
-				<Button variant={"outline"} >
-					<Link href="/">Files</Link> 
+				<Button variant={"outline"} 
+					onClick={onAdminClick}>
+    				Notes
 				</Button>
 			</div> 
             <h3 className="text-lg font-semibold ml-3">{title}</h3>
