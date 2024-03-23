@@ -1,5 +1,5 @@
 # solomon-electron
 <br>
 
-![Solo Electron Framework](./assets/solo-electron-framework.png)
+![Solo Electron Framework](./assets/solo-desktop-app.png)
 
