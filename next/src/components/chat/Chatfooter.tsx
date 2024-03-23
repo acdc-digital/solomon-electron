@@ -1,4 +1,6 @@
 // ChatFooter.tsx
+// /Users/matthewsimon/Documents/GitHub/acdc.solomon-electron/solomon-electron/next/src/components/chat/Chatfooter.tsx
+
 'use client'
 
 import React, { useRef, useState } from 'react';

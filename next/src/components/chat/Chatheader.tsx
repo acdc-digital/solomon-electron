@@ -1,4 +1,6 @@
 // ChatHeader.tsx
+// /Users/matthewsimon/Documents/GitHub/acdc.solomon-electron/solomon-electron/next/src/components/chat/Chatheader.tsx 
+
 import React from 'react';
 
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';

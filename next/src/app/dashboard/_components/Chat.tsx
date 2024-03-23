@@ -1,4 +1,5 @@
 // Chat.tsx
+// /Users/matthewsimon/Documents/GitHub/acdc.solomon-electron/solomon-electron/next/src/app/dashboard/_components/Chat.tsx
 
 import React from 'react';
 import ChatHeader from '@/components/chat/Chatheader';

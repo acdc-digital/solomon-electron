@@ -1,4 +1,6 @@
 // ChatLayout.tsx
+// /Users/matthewsimon/Documents/GitHub/acdc.solomon-electron/solomon-electron/next/src/components/chat/Chatlayout.tsx
+
 import React from 'react';
 
 const ChatLayout: React.FC = () => {
