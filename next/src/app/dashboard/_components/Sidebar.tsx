@@ -16,10 +16,10 @@ const Sidebar: React.FC = () => {
       };
 
     return (
-        <div className={`flex flex-col ${isExpanded ? 'w-52' : 'w-34'} h-screen border-r transition-width duration-300`}>
+        <div className={`flex flex-col ${isExpanded ? 'w-40' : 'w-16'} h-screen border-r transition-width duration-300`}>
             <Button 
                 variant="link"
-                className={`flex justify-end items-center w-full ${isExpanded ? '' : 'pr-24'}`}
+                className={`flex justify-end items-center w-full ${isExpanded ? '' : 'pr-6'}`}
                 onClick={toggleSidebar}>
                 {isExpanded ? <ArrowLeftFromLine className='w-4 h-4'/> : <ArrowRightFromLine className='w-4 h-4'/> }
             </Button>

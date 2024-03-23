@@ -1,10 +1,16 @@
 // Chat.tsx
+
 import React from 'react';
+import ChatHeader from '@/components/chat/Chatheader';
+import ChatLayout from '@/components/chat/Chatlayout';
+import ChatFooter from '@/components/chat/Chatfooter';
 
 const Chat: React.FC = () => {
     return (
-        <div style={{ width: '20%', backgroundColor: '#e0e0e0' }}>
-            <h2>Chat</h2>
+        <div className='flex flex-col w-[33%] h-screen border-l'>
+            <ChatHeader title="Chat" />
+            <ChatLayout />
+            <ChatFooter />
             {/* Chat content goes here */}
         </div>
     );
