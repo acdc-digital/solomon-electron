@@ -11,7 +11,7 @@ interface CanvasHeaderProps {
 
 const CanvasHeader: React.FC<CanvasHeaderProps> = ({ title }) => {
     return (
-        <div className="px-4 py-2 border-b flex items-center">
+        <div className="px-4 py-1 border-b flex items-center">
 			<div className='flex m-2'>
 				<Button 
 					className='mr-2'

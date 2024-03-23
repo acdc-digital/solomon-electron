@@ -115,9 +115,11 @@ const ChatFooter: React.FC<ChatFooterProps> = ({ sendMessage, isMobile }) => {
           onClick={handleThumbsUp}
           className="...">
           <ThumbsUp 
-		  	className='mb-3'
-		  	size={24} />
-		  <ThumbsDown size={24} />
+		  	    className='mb-3 text-gray-700'
+		  	    size={24} />
+		      <ThumbsDown 
+            className='text-gray-700'
+            size={24} />
         </button>
       )}
     </div>

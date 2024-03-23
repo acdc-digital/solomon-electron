@@ -14,7 +14,7 @@ interface ChatHeaderProps {
 
 const ChatHeader: React.FC<ChatHeaderProps> = ({ title, avatarUrl, fallbackText }) => {
     return (
-        <div className="px-4 py-4 border-b flex items-center">
+        <div className="px-4 py-3 border-b flex items-center">
 			<Avatar className='border border-gray-300'>
                 <AvatarImage src={avatarUrl} alt="User Avatar" />
                 <AvatarFallback>{fallbackText}</AvatarFallback>
@@ -25,4 +25,4 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ title, avatarUrl, fallbackText 
     );
 };
 
-export default ChatHeader;
+export default ChatHeader; 
