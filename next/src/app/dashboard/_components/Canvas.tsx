@@ -1,6 +1,8 @@
 // Canvas.tsx
 import React from 'react';
 
+import { Routes, Route } from 'react-router-dom';
+
 const Canvas: React.FC = () => {
     return (
         <div style={{ flexGrow: 1, backgroundColor: '#fff' }}>

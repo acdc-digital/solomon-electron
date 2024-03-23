@@ -9,6 +9,7 @@ import {
   PlusCircle,
   SendHorizontal,
   Smile,
+  ThumbsDown,
   ThumbsUp,
 } from 'lucide-react';
 import Link from 'next/link';
@@ -17,8 +18,7 @@ import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Message, loggedInUserData } from '@/app/data'; // Adjust this import based on your actual data handling
 import { Textarea } from '../ui/textarea';
-import { EmojiPicker } from '@/components/emoji-picker';
-import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+
 
 interface ChatFooterProps {
   sendMessage: (newMessage: Message) => void;
@@ -76,7 +76,7 @@ const ChatFooter: React.FC<ChatFooterProps> = ({ sendMessage, isMobile }) => {
   };
 
   return (
-    <div className="p-2 flex justify-between w-full items-center gap-2">
+    <div className="p-3 flex justify-between w-full items-center gap-3">
       {/* Additional functionality and icons can be added here */}
       {/* Input field and send button logic */}
       <AnimatePresence initial={false}>
@@ -112,7 +112,10 @@ const ChatFooter: React.FC<ChatFooterProps> = ({ sendMessage, isMobile }) => {
         <button
           onClick={handleThumbsUp}
           className="...">
-          <ThumbsUp size={24} />
+          <ThumbsUp 
+		  	className='mb-3'
+		  	size={24} />
+		  <ThumbsDown size={24} />
         </button>
       )}
     </div>
