@@ -22,7 +22,7 @@ const Sidebar: React.FC = () => {
             <SidebarHeader title="" /> 
             <Button 
                 variant="link"
-                className={`flex justify-end items-center w-full ${isExpanded ? '' : 'pr-6'}`}
+                className={`flex justify-end items-center w-full ${isExpanded ? '' : 'pr-14'}`}
                 onClick={toggleSidebar}>
                 {isExpanded ? <ArrowLeftFromLine className='w-4 h-4'/> : <ArrowRightFromLine className='w-4 h-4'/> }
             </Button> 

@@ -25,12 +25,12 @@ const CanvasHeader: React.FC<CanvasHeaderProps & { onAdminClick: () => void, onN
 				<Button 
 					className='mr-2'
 					variant={"outline"} 
-					onClick={onAdminClick}>
+					onClick={onFilesClick}>
     				Files 
 				</Button>
 
 				<Button variant={"outline"} 
-					onClick={onAdminClick}>
+					onClick={onNotesClick}>
     				Notes
 				</Button>
 			</div> 

@@ -21,16 +21,15 @@ const Canvas: React.FC = () => {
     };
 
     return (
-        <div style={{ flexGrow: 1, backgroundColor: '#fff' }}>
-            <CanvasHeader
-              title="Canvas"
-              onAdminClick={() => setActiveComponent('Admin')}
-              onNotesClick={() => setActiveComponent('Notes')}
-              onFilesClick={() => setActiveComponent('Files')}
-            /> 
-            <h2 className='m-2'>Project Canvas</h2>
-            {renderComponent()}
-        </div>
+            <div className='flex flex-col flex-grow bg-[#FFF] overflow-hidden'>
+                <CanvasHeader
+                title="Canvas"
+                onAdminClick={() => setActiveComponent('Admin')}
+                onNotesClick={() => setActiveComponent('Notes')}
+                onFilesClick={() => setActiveComponent('Files')}
+                /> 
+                {renderComponent()}
+            </div>
     );
 };
 
