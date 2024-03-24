@@ -4,7 +4,7 @@
 
 import SidebarHeader from '@/components/sidebar/Sidebarheader';
 import { Button } from '@/components/ui/button';
-import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight } from 'lucide-react';
+import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, SquarePlusIcon } from 'lucide-react';
 import React, { useState } from 'react';
 
 const Sidebar: React.FC = () => {
@@ -18,7 +18,7 @@ const Sidebar: React.FC = () => {
       };
 
     return (
-        <div className={`flex flex-col ${isExpanded ? 'w-40' : 'w-24'} h-screen border-r transition-width duration-300`}>
+        <div className={`flex flex-col ${isExpanded ? 'w-48' : 'w-24'} h-screen border-r transition-width duration-300`}>
             <SidebarHeader title="" /> 
             <Button 
                 variant="link"
@@ -26,7 +26,16 @@ const Sidebar: React.FC = () => {
                 onClick={toggleSidebar}>
                 {isExpanded ? <ArrowLeftFromLine className='w-4 h-4'/> : <ArrowRightFromLine className='w-4 h-4'/> }
             </Button> 
-            <h2 className="pl-4">Projects</h2>
+            
+            {/* New Project Button */} 
+            <Button 
+                variant="outline" 
+                className='ml-4 mr-4'
+                >
+                <SquarePlusIcon className='m-2 h-4 w-4'/>
+                {isExpanded && 'New Project'}
+            </Button>
+
             {/* Sidebar content goes here */}
         </div>
     );
