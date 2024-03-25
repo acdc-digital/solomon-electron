@@ -8,7 +8,21 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Solomon-Desktop",
-  description: "Artficial intellegence for your wokstation.",
+  description: "A new way to useArtficial intellegence within your wokstation.",
+  /* icons: {
+    icon: [
+      {
+        media: "(prefers-color-scheme: light)",
+        url: "/.svg",
+        href: "/.svg",
+      },
+      {
+        media: "(prefers-color-scheme: dark)",
+        url: "/.svg",
+        href: "/.svg",
+      },
+    ]
+  } */
 };
 
 export default function RootLayout({

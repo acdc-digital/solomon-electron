@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Header from "@/components/header";
 
-export default function Home() {
+const Homepage = () => {
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -20,3 +21,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Homepage;
