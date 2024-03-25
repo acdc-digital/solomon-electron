@@ -1,3 +1,5 @@
+// /Users/matthewsimon/Documents/GitHub/acdc.solomon-electron/solomon-electron/next/src/app/dashboard/page.tsx
+
 import React from 'react';
 import DashboardLayout from './DashboardLayout';
 
