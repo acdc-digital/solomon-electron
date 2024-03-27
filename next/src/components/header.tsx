@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Button } from './ui/button';
 
 import { useConvexAuth } from 'convex/react';
-import { SignInButton, UserButton } from '@clerk/nextjs'
+import { SignInButton, UserButton } from '@clerk/clerk-react'
 
 const Header: React.FC = () => {
     const { isAuthenticated, isLoading } = useConvexAuth();

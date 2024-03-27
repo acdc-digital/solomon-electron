@@ -1,28 +1,62 @@
 // ChatHeader.tsx
-// /Users/matthewsimon/Documents/GitHub/acdc.solomon-electron/solomon-electron/next/src/components/chat/Chatheader.tsx 
+
+'use client'
 
 import React from 'react';
-
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
+import { SignOutButton, useUser } from '@clerk/clerk-react';
+import { ChevronsLeftRight, Ghost, Settings } from 'lucide-react';
+import { Button } from '../ui/button';
 
 interface ChatHeaderProps {
-	// You can add more props as needed
-    title: string; 
-	avatarUrl: string; // URL for the avatar image
+    title: string;
+    avatarUrl: string; // URL for the avatar image
     fallbackText: string; // Fallback text, e.g., user initials
 }
 
 const ChatHeader: React.FC<ChatHeaderProps> = ({ title, avatarUrl, fallbackText }) => {
+    const { user } = useUser();
+
     return (
-        <div className="px-4 py-3 border-b flex items-center">
-			<Avatar className='border border-gray-300'>
-                <AvatarImage src={avatarUrl} alt="User Avatar" />
-                <AvatarFallback>{fallbackText}</AvatarFallback>
-            </Avatar>
-            <h3 className="text-lg font-semibold ml-3">{title}</h3>
-            {/* You can add more header content here, like buttons or status indicators */}
+        <div className="px-4 py-0 border-b flex items-center">
+            <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                    <button className='flex gap-x-3 items-center text-sm p-3'>
+                        <Avatar className='border border-gray-300'>
+                            <AvatarImage src={user?.imageUrl || avatarUrl} alt="User Avatar" />
+                            <AvatarFallback>{fallbackText}</AvatarFallback>
+                        </Avatar>
+                        <span className="text-start font-medium line-clamp-1">
+                            {user?.fullName || title}
+                        </span>
+                        <ChevronsLeftRight className='rotate-90 text-muted-foreground h-4 2-4'/>
+                    </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-80" align="start" alignOffset={11} >
+                    <div className='flex flex-col space-y-2 p-2'>
+                        <p className='text-sm font-medium leading-none text-muted-foreground'>
+                        {user?.emailAddresses[0].emailAddress}
+                        </p>
+                            <div className='space-y-0'>
+                                <p className='text-sm font-medium'>
+                                    {user?.fullName}
+                                </p>
+                                {/* <div>
+                                <Settings className='mt-1 w-4 h-4'/>
+                                </div> */}
+                            </div>
+                    </div>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild className='w-full cursor-pointer text-muted-foreground'>
+                    <SignOutButton>
+                        Log Out
+                    </SignOutButton>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
         </div>
     );
 };
 
-export default ChatHeader; 
+export default ChatHeader;

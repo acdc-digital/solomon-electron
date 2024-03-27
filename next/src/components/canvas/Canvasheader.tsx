@@ -34,7 +34,6 @@ const CanvasHeader: React.FC<CanvasHeaderProps & { onAdminClick: () => void, onN
     				Notes
 				</Button>
 			</div> 
-            <h3 className="text-lg font-semibold ml-3">{title}</h3>
             {/* You can add more header content here, like buttons or status indicators */}
         </div>
     );
