@@ -3,6 +3,7 @@
 'use client'
 
 import SidebarHeader from '@/components/sidebar/Sidebarheader';
+import SidebarFooter from '@/components/sidebar/Sidebarfooter';
 import { Button } from '@/components/ui/button';
 import { useQuery } from 'convex/react';
 import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, SquarePlusIcon } from 'lucide-react';
@@ -48,6 +49,8 @@ const Sidebar: React.FC = () => {
                     </p>
                 ))}
             </div>
+            {/* Sidebar Footer */}
+            <SidebarFooter />
         </div>
     );
 };
