@@ -4,8 +4,10 @@
 
 import SidebarHeader from '@/components/sidebar/Sidebarheader';
 import { Button } from '@/components/ui/button';
+import { useQuery } from 'convex/react';
 import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, SquarePlusIcon } from 'lucide-react';
 import React, { useState } from 'react';
+import { api } from '../../../../convex/_generated/api';
 
 const Sidebar: React.FC = () => {
     // State to toggle the sidebar width
@@ -16,6 +18,8 @@ const Sidebar: React.FC = () => {
         console.log("Toggling sidebar");
         setIsExpanded(!isExpanded);
       };
+
+      const projects = useQuery(api.projects.get);
 
     return (
         <div className={`flex flex-col ${isExpanded ? 'w-48' : 'w-24'} h-screen border-r transition-width duration-300`}>
@@ -37,6 +41,13 @@ const Sidebar: React.FC = () => {
             </Button>
 
             {/* Sidebar content goes here */}
+            <div className='m-4'>
+                {projects?.map((project) => (
+                    <p key={project._id}>
+                      {project.title}
+                    </p>
+                ))}
+            </div>
         </div>
     );
 };
