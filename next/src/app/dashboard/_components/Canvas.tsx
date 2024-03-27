@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 
 import CanvasHeader from '@/components/canvas/Canvasheader';
 import Admin from '@/components/canvas/Admin'; 
-import Notes from '@/components/canvas/Notes';
+import Notes from '@/components/canvas/Projects';
 import Files from '@/components/canvas/Files'; 
 
 const Canvas: React.FC = () => {

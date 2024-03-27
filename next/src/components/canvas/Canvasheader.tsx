@@ -31,7 +31,7 @@ const CanvasHeader: React.FC<CanvasHeaderProps & { onAdminClick: () => void, onN
 
 				<Button variant={"outline"} 
 					onClick={onNotesClick}>
-    				Notes
+    				Projects
 				</Button>
 			</div> 
             {/* You can add more header content here, like buttons or status indicators */}
