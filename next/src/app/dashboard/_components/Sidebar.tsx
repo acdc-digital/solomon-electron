@@ -5,10 +5,12 @@
 import SidebarHeader from '@/components/sidebar/Sidebarheader';
 import SidebarFooter from '@/components/sidebar/Sidebarfooter';
 import { Button } from '@/components/ui/button';
-import { useQuery } from 'convex/react';
-import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, SquarePlusIcon } from 'lucide-react';
+import { useMutation, useQuery } from 'convex/react';
+import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, PlusCircle, PlusSquare, SquarePlusIcon } from 'lucide-react';
 import React, { useState } from 'react';
 import { api } from '../../../../convex/_generated/api';
+import { toast } from 'sonner';
+import { ProjectItem } from '@/components/sidebar/ProjectItem';
 
 const Sidebar: React.FC = () => {
     // State to toggle the sidebar width
@@ -21,6 +23,17 @@ const Sidebar: React.FC = () => {
       };
 
       const projects = useQuery(api.projects.get);
+      const create = useMutation(api.projects.create); 
+
+      const handleCreate = () => {
+        const promise = create ({ title: " New Project" });
+
+        toast.promise(promise, {
+            loading: "Creating a new Project...",
+            success: "New Project Created!",
+            error: "Failed to Create a new Project"
+        });
+      };
 
     return (
         <div className={`flex flex-col ${isExpanded ? 'w-48' : 'w-24'} h-screen border-r transition-width duration-300`}>
@@ -33,13 +46,13 @@ const Sidebar: React.FC = () => {
             </Button> 
             
             {/* New Project Button */} 
-            <Button 
-                variant="outline" 
-                className='ml-4 mr-4'
-                >
-                <SquarePlusIcon className='m-2 h-4 w-4'/>
-                {isExpanded && 'New Project'}
-            </Button>
+            <div>
+                <ProjectItem
+                    onClick={() => {}}
+                    label="New Project"
+                    icon={PlusCircle}
+                    /> 
+            </div>
 
             {/* Sidebar content goes here */}
             <div className='m-4'>
