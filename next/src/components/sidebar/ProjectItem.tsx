@@ -3,6 +3,7 @@
 import { ChevronDown, ChevronRight, LucideIcon } from "lucide-react";
 import { Id } from "../../../convex/_generated/dataModel";
 import { cn } from "@/lib/utils";
+import { Skeleton } from "../ui/skeleton";
 
 interface ProjectItemProps {
 	id?: Id<"projects">;
@@ -41,7 +42,7 @@ export const ProjectItem = ({
 			paddingLeft: level ? `${(level * 12) + 12}px` : "12px" 
 			}}
 		className={cn(
-			"ml-3 mr-5 group border border-black rounded-md  min-h-[27px] text-sm py-1 pr-3 flex items-center font-medium hover:bg-primary/5",
+			"ml-3 mr-5 mb-1 group border border-black rounded-md  min-h-[27px] text-sm py-1 pr-3 flex items-center font-medium hover:bg-primary/5",
 			active && "bg-primary/5 text-primary"
 			)}
 		  >
@@ -71,6 +72,19 @@ export const ProjectItem = ({
 					<span className="text-xs">⌘</span>k
 				</kbd>
 			)}
+		</div>
+	)
+}
+
+ProjectItem.Skeleton = function ProjectItemSkeleton({ level }: {level?: number }) {
+	return (
+		<div
+			className="flex gap-x-2 py-[3px]"
+			style={{
+			paddingLeft: level ? `${(level * 12) + 25}px` : "12px"
+		}}>
+			<Skeleton className="h-4 w-4" />
+			<Skeleton className="h-4 w-[30%]" />
 		</div>
 	)
 }

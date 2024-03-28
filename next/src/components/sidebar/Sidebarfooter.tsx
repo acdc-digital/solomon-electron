@@ -9,7 +9,7 @@ const SidebarFooter: React.FC = () => {
     return (
         <div className="border-t py-4 mt-auto">
             {/* Footer content goes here */}
-            <div className='mb-2'>
+            <div className='mb-2 ml-1'>
                 <ProjectItem
                     onClick={() => {}}
                     label="Settings"

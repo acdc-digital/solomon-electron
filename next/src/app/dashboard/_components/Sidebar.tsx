@@ -5,12 +5,14 @@
 import SidebarHeader from '@/components/sidebar/Sidebarheader';
 import SidebarFooter from '@/components/sidebar/Sidebarfooter';
 import { Button } from '@/components/ui/button';
-import { useMutation, useQuery } from 'convex/react';
+import { useMutation } from 'convex/react';
 import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, PlusCircle, PlusSquare, Search, SquarePlusIcon } from 'lucide-react';
 import React, { useState } from 'react';
 import { api } from '../../../../convex/_generated/api';
 import { toast } from 'sonner';
 import { ProjectItem } from '@/components/sidebar/ProjectItem';
+import { ProjectList } from '@/components/sidebar/Project-List';
+import { Separator } from '@/components/ui/separator';
 
 const Sidebar: React.FC = () => {
     // State to toggle the sidebar width
@@ -22,7 +24,6 @@ const Sidebar: React.FC = () => {
         setIsExpanded(!isExpanded);
       };
 
-      const projects = useQuery(api.projects.get);
       const create = useMutation(api.projects.create); 
 
       const handleCreate = () => {
@@ -46,30 +47,31 @@ const Sidebar: React.FC = () => {
             </Button> 
             
             {/* New Project Button */} 
-            <div className='mb-3'>
+            <div className='mb-0 ml-1'>
                 <ProjectItem
                     onClick={() => {}}
                     label="Search"
                     icon={Search}
                     isSearch
-                    /> 
+                    />
             </div>
             
-            <div>
+            <div className='mb-4 ml-1'>
                 <ProjectItem
                     onClick={handleCreate}
                     label="New Project"
                     icon={PlusCircle}
                     /> 
+                    <div>
+                    <Separator
+                    className='mt-4'
+                    />
+                    </div>
             </div>
 
             {/* Sidebar content goes here */}
-            <div className='m-4'>
-                {projects?.map((project) => (
-                    <p key={project._id}>
-                      {project.title}
-                    </p>
-                ))}
+            <div>
+                <ProjectList />
             </div>
             {/* Sidebar Footer */}
             <SidebarFooter />
