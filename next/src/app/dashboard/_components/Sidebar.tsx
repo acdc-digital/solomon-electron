@@ -6,7 +6,7 @@ import SidebarHeader from '@/components/sidebar/Sidebarheader';
 import SidebarFooter from '@/components/sidebar/Sidebarfooter';
 import { Button } from '@/components/ui/button';
 import { useMutation, useQuery } from 'convex/react';
-import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, PlusCircle, PlusSquare, SquarePlusIcon } from 'lucide-react';
+import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, PlusCircle, PlusSquare, Search, SquarePlusIcon } from 'lucide-react';
 import React, { useState } from 'react';
 import { api } from '../../../../convex/_generated/api';
 import { toast } from 'sonner';
@@ -46,9 +46,18 @@ const Sidebar: React.FC = () => {
             </Button> 
             
             {/* New Project Button */} 
-            <div>
+            <div className='mb-3'>
                 <ProjectItem
                     onClick={() => {}}
+                    label="Search"
+                    icon={Search}
+                    isSearch
+                    /> 
+            </div>
+            
+            <div>
+                <ProjectItem
+                    onClick={handleCreate}
                     label="New Project"
                     icon={PlusCircle}
                     /> 

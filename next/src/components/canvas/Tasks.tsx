@@ -7,17 +7,17 @@ import Image from "next/image";
 import { Button } from "../ui/button";
 import { PlusCircle } from "lucide-react";
 
-const Files = () => {
+const Tasks = () => {
   const { user } = useUser();
 
   return (
     <div className="flex flex-col h-full items-center justify-center space-y-4 overflow-hidden">
       <h2 className="text-lg font-medium pb-4">
-        There are Currently No Files.
+        There are Currently No Tasks.
       </h2>
 
      <Image
-     src="/undraw_taken.svg"
+     src="/undraw_outer_space.svg"
      height="400"
      width="400"
      alt="To the moon."
@@ -35,4 +35,4 @@ const Files = () => {
   );
 }
 
-export default Files;
+export default Tasks;

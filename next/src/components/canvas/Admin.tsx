@@ -17,7 +17,7 @@ const Admin = () => {
       </h2>
 
      <Image
-     src="/undraw_to_the_moon.svg"
+     src="/undraw_to_the_stars.svg"
      height="400"
      width="400"
      alt="To the moon."

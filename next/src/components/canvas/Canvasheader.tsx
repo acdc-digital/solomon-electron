@@ -10,7 +10,12 @@ interface CanvasHeaderProps {
 }
 
 // Pass onClick callbacks for each button
-const CanvasHeader: React.FC<CanvasHeaderProps & { onAdminClick: () => void, onNotesClick: () => void, onFilesClick: () => void }> = ({ title, onAdminClick, onNotesClick, onFilesClick }) => {
+const CanvasHeader: React.FC<CanvasHeaderProps & { 
+	onAdminClick: () => void, 
+	onProjectsClick: () => void, 
+	onFilesClick: () => void, 
+	onTasksClick: () => void, 
+	}> = ({ title, onAdminClick, onProjectsClick, onFilesClick, onTasksClick }) => {
     // Modify your Button components to call the provided callbacks on click
     return (
         <div className="px-4 py-1 border-b flex items-center">
@@ -29,9 +34,17 @@ const CanvasHeader: React.FC<CanvasHeaderProps & { onAdminClick: () => void, onN
     				Files 
 				</Button>
 
-				<Button variant={"outline"} 
-					onClick={onNotesClick}>
+				<Button
+					className='mr-2' 
+					variant={"outline"} 
+					onClick={onProjectsClick}>
     				Projects
+				</Button>
+
+				<Button 
+					variant={"outline"} 
+					onClick={onTasksClick}>
+    				Tasks
 				</Button>
 			</div> 
             {/* You can add more header content here, like buttons or status indicators */}

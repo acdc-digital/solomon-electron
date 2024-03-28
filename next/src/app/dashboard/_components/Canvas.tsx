@@ -7,6 +7,7 @@ import CanvasHeader from '@/components/canvas/Canvasheader';
 import Admin from '@/components/canvas/Admin'; 
 import Notes from '@/components/canvas/Projects';
 import Files from '@/components/canvas/Files'; 
+import Tasks from '@/components/canvas/Tasks';
 
 const Canvas: React.FC = () => {
     const [activeComponent, setActiveComponent] = useState('Admin'); // Default to Admin
@@ -16,6 +17,7 @@ const Canvas: React.FC = () => {
             case 'Admin': return <Admin />;
             case 'Notes': return <Notes />;
             case 'Files': return <Files />;
+            case 'Tasks': return <Tasks />;
             default: return <Admin />; // Default case
         }
     };
@@ -25,8 +27,9 @@ const Canvas: React.FC = () => {
                 <CanvasHeader
                 title="Canvas"
                 onAdminClick={() => setActiveComponent('Admin')}
-                onNotesClick={() => setActiveComponent('Notes')}
+                onProjectsClick={() => setActiveComponent('Notes')}
                 onFilesClick={() => setActiveComponent('Files')}
+                onTasksClick={() => setActiveComponent('Tasks')}
                 /> 
                 {renderComponent()}
             </div>

@@ -34,7 +34,7 @@ const Projects = () => {
       </h2>
 
      <Image
-     src="/undraw_to_the_moon.svg"
+     src="/undraw_maker_launch.svg"
      height="400"
      width="400"
      alt="To the moon."
