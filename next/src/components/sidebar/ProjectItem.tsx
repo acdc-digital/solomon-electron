@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronDown, ChevronRight, LucideIcon, Plus, PlusCircle } from "lucide-react";
+import { ChevronDown, ChevronRight, LucideIcon, MoreHorizontal, Plus, PlusCircle, Trash2Icon, TrashIcon } from "lucide-react";
 import { Id } from "../../../convex/_generated/dataModel";
 import { cn } from "@/lib/utils";
 import { Skeleton } from "../ui/skeleton";
@@ -8,6 +8,8 @@ import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { useRouter } from "next/navigation"
 import { toast } from "sonner";
+import { DropdownMenu, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "../ui/dropdown-menu";
+import { useUser } from "@clerk/clerk-react";
 
 interface ProjectItemProps {
 	id?: Id<"projects">;
@@ -34,6 +36,7 @@ export const ProjectItem = ({
 	onExpand,
 	expanded, 
 	}: ProjectItemProps) => {
+		const { user } = useUser();
 		const router = useRouter();
 		const create = useMutation(api.projects.create);
 
@@ -102,12 +105,41 @@ export const ProjectItem = ({
 			</span>
 			{isSearch}
 			{!!id && (
+				<div className="ml-auto flex items-center gap-x-2">
+					<DropdownMenu>
+					  <DropdownMenuTrigger
+						onClick={(e) => e.stopPropagation()}
+						asChild>
+						<div
+						  role="button"
+						  className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm"
+						  >
+							<TrashIcon className="h-4 w-4 text-gray-600"/>
+						</div>
+
+					  </DropdownMenuTrigger>
+						<DropdownMenuContent
+						  className="w-60"
+						  align="start"
+						  side="right"
+						  forceMount
+						>
+							<DropdownMenuItem onClick={() => {}}>
+								<Trash2Icon className="h-4 w-4 mr-2" />
+								  Delete
+							</DropdownMenuItem>
+							  <DropdownMenuSeparator />
+							    <div className="text-xs text-muted-foreground p-2">
+									Last edited by: {user?.fullName}
+								</div>
+						</DropdownMenuContent>
+					</DropdownMenu>
 				<div
+					className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm"
 					role="button"
 					onClick={onCreate}
-					className="ml-auto flex items-center gap-x-2">
-					<div className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm">
-						<PlusCircle className="h-4 w-4 text-gray-600" />
+					>
+					<PlusCircle className="h-4 w-4 text-gray-600" />
 					</div>
 				</div>
 			)}
