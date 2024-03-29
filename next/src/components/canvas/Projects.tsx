@@ -28,7 +28,7 @@ const Projects = () => {
   }
 
   return (
-    <div className="flex flex-col h-full items-center justify-center space-y-4 overflow-hidden">
+    <div className="mt-24 flex flex-col h-full items-center space-y-4 overflow-hidden">
       <h2 className="text-lg font-medium pb-4">
         There are Currently No Projects.
       </h2>

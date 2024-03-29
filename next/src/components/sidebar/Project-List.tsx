@@ -64,7 +64,9 @@ export const ProjectList = ({
 			  level === 0 && "hidden"
 			  )}
 			>
-			    No Projects Inside.
+				<p className="ml-4">
+			    No Projects.
+				</p>
 			</p>
 			{projects.map((project) => (
 				<div key={project._id}>

@@ -7,6 +7,7 @@
 
 import * as React from "react"
 import Link from "next/link";
+import Image from "next/image";
 
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
@@ -53,6 +54,14 @@ const ModeToggle = () => {
 const SidebarHeader: React.FC<SidebarHeaderProps> = ({ title }) => {
     return (
         <div className="px-4 py-3 border-b flex items-center">
+          {/* <Image
+            className="mr-4"
+            src="/solomon.svg"
+            alt="Next.js Logo"
+            width={25}
+            height={25}
+            priority
+              /> */}
             <div className='flex'>
                 <Button 
 					className="mr-4"

@@ -37,7 +37,7 @@ const Sidebar: React.FC = () => {
       };
 
     return (
-        <div className={`flex flex-col ${isExpanded ? 'w-48' : 'w-24'} h-screen border-r transition-width duration-300`}>
+        <div className={`flex flex-col ${isExpanded ? 'w-52' : 'w-24'} h-screen border-r transition-width duration-300`}>
             <SidebarHeader title="" /> 
             <Button 
                 variant="link"
