@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation"
 import { toast } from "sonner";
 import { DropdownMenu, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "../ui/dropdown-menu";
 import { useUser } from "@clerk/clerk-react";
+import { arch } from "os";
 
 interface ProjectItemProps {
 	id?: Id<"projects">;
@@ -20,7 +21,7 @@ interface ProjectItemProps {
 	level?: number;
 	onExpand?: () => void;
 	label: string;
-	onClick: () => void;
+	onClick?: () => void;
 	icon: LucideIcon;
 };
 
@@ -39,6 +40,21 @@ export const ProjectItem = ({
 		const { user } = useUser();
 		const router = useRouter();
 		const create = useMutation(api.projects.create);
+		const archive = useMutation(api.projects.archive);
+
+	const onArchive = (
+		event: React.MouseEvent<HTMLDivElement, MouseEvent>
+		) => {
+			event.stopPropagation();
+			if (!id) return;
+			const promise = archive({ id });
+
+			toast.promise(promise, {
+				loading: "Moving to Trash...",
+				success: "Project Moved to Trash!",
+				error: "Failed to Archive Project."
+			});
+		};
 
 	const handleExpand = (
 		event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -124,7 +140,7 @@ export const ProjectItem = ({
 						  side="right"
 						  forceMount
 						>
-							<DropdownMenuItem onClick={() => {}}>
+							<DropdownMenuItem onClick={onArchive}>
 								<Trash2Icon className="h-4 w-4 mr-2" />
 								  Delete
 							</DropdownMenuItem>

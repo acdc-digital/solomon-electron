@@ -6,13 +6,15 @@ import SidebarHeader from '@/components/sidebar/Sidebarheader';
 import SidebarFooter from '@/components/sidebar/Sidebarfooter';
 import { Button } from '@/components/ui/button';
 import { useMutation } from 'convex/react';
-import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, PlusCircle, PlusSquare, Search, SquarePlusIcon } from 'lucide-react';
+import { ArrowLeftFromLine, ArrowRightFromLine, ChevronsLeftRight, Plus, PlusCircle, PlusSquare, RefreshCcw, Search, SquarePlusIcon, Trash, Trash2Icon } from 'lucide-react';
 import React, { useState } from 'react';
 import { api } from '../../../../convex/_generated/api';
 import { toast } from 'sonner';
 import { ProjectItem } from '@/components/sidebar/ProjectItem';
 import { ProjectList } from '@/components/sidebar/Project-List';
 import { Separator } from '@/components/ui/separator';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
+import { Trashbox } from '@/components/sidebar/Trashbox';
 
 const Sidebar: React.FC = () => {
     // State to toggle the sidebar width
@@ -61,7 +63,12 @@ const Sidebar: React.FC = () => {
                     onClick={handleCreate}
                     label="New Project"
                     icon={PlusCircle}
-                    /> 
+                    />
+                    {/* <ProjectItem
+                    href="/dashboard"
+                    label="Collapse All"
+                    icon={RefreshCcw}
+                    /> */}
                     <div>
                     <Separator
                     className='mt-4'
@@ -70,8 +77,18 @@ const Sidebar: React.FC = () => {
             </div>
 
             {/* Sidebar content goes here */}
-            <div>
+            <div className='flex flex-grow flex-col'>
                 <ProjectList />
+                <div className='mt-auto mb-3'>
+                <Popover>
+                    <PopoverTrigger className='w-full mt-4'>
+                        <ProjectItem label="Trashcan" icon={Trash2Icon} />
+                    </PopoverTrigger>
+                    <PopoverContent className='ml-3 p-0 w-72'>
+                        <Trashbox />
+                    </PopoverContent>
+                </Popover>
+                </div>
             </div>
             {/* Sidebar Footer */}
             <SidebarFooter />

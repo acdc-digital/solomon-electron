@@ -106,3 +106,112 @@ export const create = mutation({
 		});
 	}
 });
+
+export const getTrash = query({
+	handler: async (ctx) => {
+		const identity = await ctx.auth.getUserIdentity();
+
+		if (!identity) {
+			throw new Error("User Not Authenticated.");
+		}
+
+		const userId = identity.subject;
+
+		const projects = await ctx.db
+		.query("projects")
+		.withIndex("by_user", (q) => q.eq("userId", userId))
+		.filter((q) =>
+			q.eq(q.field("isArchived"), true),
+			)
+			.order("desc")
+			.collect();
+
+		return projects;
+	}
+});
+
+export const restore = mutation({
+	args: { id: v.id("projects") },
+	handler: async (ctx, args) => {
+		const identity = await ctx.auth.getUserIdentity();
+
+		if (!identity) {
+			throw new Error("User Not Authenticated.");
+		}
+
+		const userId = identity.subject;
+
+		const existingProject = await ctx.db.get(args.id);
+
+		if (!existingProject) {
+			throw new Error("Project Not Found.");
+		}
+
+		if (existingProject.userId !== userId) {
+			throw new Error("User not Authorized.")
+		}
+
+		const recursiveRestore = async (projectId: Id<"projects">) => {
+			const children = await ctx.db
+			.query("projects")
+			.withIndex("by_user_parent", (q) => (
+				q
+				.eq("userId", userId)
+				.eq("parentProject", projectId)
+			))
+			.collect();
+
+			for (const child of children) {
+			await ctx.db.patch(child._id, {
+				isArchived: false,
+			});
+
+			await recursiveRestore(child._id);
+			}
+		}
+
+		const options: Partial<Doc<"projects">> = {
+			isArchived: false,
+		};
+
+		if (existingProject.parentProject) {
+			const parent = await ctx.db.get(existingProject.parentProject);
+			if (parent?.isArchived) {
+				options.parentProject = undefined;
+			}
+		}
+
+		const project = await ctx.db.patch(args.id, options);
+
+		recursiveRestore(args.id);
+
+		return project;
+	}
+});
+
+export const remove = mutation({
+	args: { id: v.id("projects") },
+	handler: async (ctx, args) => {
+		const identity = await ctx.auth.getUserIdentity();
+
+		if (!identity) {
+			throw new Error("User Not Authenticated.");
+		}
+
+		const userId = identity.subject;
+
+		const existingProject = await ctx.db.get(args.id);
+
+		if (!existingProject) {
+			throw new Error("Not Found.");
+		}
+
+		if (existingProject.userId !== userId) {
+			throw new Error("User not Authorized.");
+		}
+
+		const project = await ctx.db.delete(args.id);
+
+		return project;
+	}
+});
