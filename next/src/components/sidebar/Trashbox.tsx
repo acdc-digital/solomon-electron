@@ -6,7 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import { api } from "../../../convex/_generated/api";
 import { Id } from "../../../convex/_generated/dataModel";
 import { toast } from "sonner";
-import { Search } from "lucide-react";
+import { Search, TrashIcon, UndoIcon } from "lucide-react";
 import { Input } from "../ui/input";
 
 export const Trashbox = () => {
@@ -86,9 +86,24 @@ export const Trashbox = () => {
 					onClick={() => onClick(project._id)}
 					className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between"
 					>
-						<span className="ml-4">
+						<span className="ml-4 truncate pl-2">
 							{project.title}
 						</span>
+						<div className="flex items-center">
+							<div
+							className="rounded-sm p-2 hover:bg-neutral-200"
+							onClick={(e) => onRestore(e, project._id)}
+							role="button"
+							>
+								<UndoIcon className="h-4 w-4 text-muted-foreground"/>
+							</div>
+							<div
+							className="rounded-sm p-2 hover:bg-neutral-200"
+							role="button"
+							>
+								<TrashIcon className="h-4 w-4 text-muted-foreground"/> 
+							</div>
+						</div>
 					</div>
 				))}
 			</div>

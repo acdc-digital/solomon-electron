@@ -18,8 +18,8 @@ const Tasks = () => {
 
      <Image
      src="/undraw_outer_space.svg"
-     height="400"
-     width="400"
+     height="350"
+     width="350"
      alt="To the moon."
      className="pb-4"
      />

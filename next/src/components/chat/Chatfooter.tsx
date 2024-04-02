@@ -18,7 +18,7 @@ import Link from 'next/link';
 import { buttonVariants } from '../ui/button';
 import { cn } from '@/lib/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Message, loggedInUserData } from '@/app/data'; // Adjust this import based on your actual data handling
+// import { Message, loggedInUserData } from '@/app/data'; 
 import { Textarea } from '../ui/textarea';
 
 

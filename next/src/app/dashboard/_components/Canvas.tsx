@@ -1,4 +1,6 @@
 // Canvas.tsx
+// /Users/matthewsimon/Documents/github/solomon-electron/solomon-electron/next/src/app/dashboard/_components/Canvas.tsx
+
 'use client'
 
 import React, { useState } from 'react';

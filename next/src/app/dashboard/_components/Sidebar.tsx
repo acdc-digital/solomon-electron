@@ -39,7 +39,7 @@ const Sidebar: React.FC = () => {
       };
 
     return (
-        <div className={`flex flex-col ${isExpanded ? 'w-52' : 'w-24'} h-screen border-r transition-width duration-300`}>
+        <div className={`flex flex-col ${isExpanded ? 'w-58' : 'w-24'} h-screen border-r transition-width duration-300`}>
             <SidebarHeader title="" /> 
             <Button 
                 variant="link"
@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
             </Button> 
             
             {/* New Project Button */} 
-            <div className='mb-0 ml-1'>
+            <div className='mb-1 ml-1'>
                 <ProjectItem
                     onClick={() => {}}
                     label="Search"
@@ -81,7 +81,7 @@ const Sidebar: React.FC = () => {
                 <ProjectList />
                 <div className='mt-auto mb-3'>
                 <Popover>
-                    <PopoverTrigger className='w-full mt-4'>
+                    <PopoverTrigger className='w-full mt-4 ml-1'>
                         <ProjectItem label="Trashcan" icon={Trash2Icon} />
                     </PopoverTrigger>
                     <PopoverContent className='ml-3 p-0 w-72'>

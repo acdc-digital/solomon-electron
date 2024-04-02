@@ -17,9 +17,9 @@ const Files = () => {
       </h2>
 
      <Image
-     src="/undraw_taken.svg"
-     height="400"
-     width="400"
+     src="/undraw_relaunch_day.svg"
+     height="325"
+     width="325"
      alt="To the moon."
      className="pb-4"
      />
