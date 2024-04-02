@@ -18,7 +18,7 @@ const CanvasHeader: React.FC<CanvasHeaderProps & {
 	}> = ({ title, onAdminClick, onProjectsClick, onFilesClick, onTasksClick }) => {
     // Modify your Button components to call the provided callbacks on click
     return (
-        <div className="px-4 py-1 border-b flex items-center">
+        <div className="px-4 py-1 border-b flex items-center bg-gray-50">
 			<div className='flex m-2'>
 				<Button 
 					className='mr-2'

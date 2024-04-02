@@ -19,7 +19,7 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ title, avatarUrl, fallbackText 
     const { user } = useUser();
 
     return (
-        <div className="px-4 py-0 border-b flex items-center">
+        <div className="px-4 py-0 border-b flex items-center bg-gray-50">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <button className='flex gap-x-3 items-center text-sm p-3'>

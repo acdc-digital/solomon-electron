@@ -53,7 +53,7 @@ const ModeToggle = () => {
 
 const SidebarHeader: React.FC<SidebarHeaderProps> = ({ title }) => {
     return (
-        <div className="px-4 py-3 border-b flex items-center">
+        <div className="px-4 py-3 border-b flex items-center bg-gray-50">
           {/* <Image
             className="mr-4"
             src="/solomon.svg"
