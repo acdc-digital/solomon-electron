@@ -8,6 +8,7 @@ import { Id } from "../../../convex/_generated/dataModel";
 import { toast } from "sonner";
 import { Search, TrashIcon, UndoIcon } from "lucide-react";
 import { Input } from "../ui/input";
+import { ConfirmModal } from "../modals/confirm-modal";
 
 export const Trashbox = () => {
 	const router = useRouter();
@@ -97,12 +98,14 @@ export const Trashbox = () => {
 							>
 								<UndoIcon className="h-4 w-4 text-muted-foreground"/>
 							</div>
+							<ConfirmModal onConfirm={() => onRemove(project._id)}>
 							<div
 							className="rounded-sm p-2 hover:bg-neutral-200"
 							role="button"
 							>
 								<TrashIcon className="h-4 w-4 text-muted-foreground"/> 
 							</div>
+							</ConfirmModal>
 						</div>
 					</div>
 				))}
