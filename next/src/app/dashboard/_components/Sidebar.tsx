@@ -15,8 +15,11 @@ import { ProjectList } from '@/components/sidebar/Project-List';
 import { Separator } from '@/components/ui/separator';
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
 import { Trashbox } from '@/components/sidebar/Trashbox';
+import { useSearch } from '@/hooks/use-search';
 
 const Sidebar: React.FC = () => {
+    const search = useSearch();
+
     // State to toggle the sidebar width
     const [isExpanded, setIsExpanded] = useState(true);
 
@@ -51,7 +54,7 @@ const Sidebar: React.FC = () => {
             {/* New Project Button */} 
             <div className='mb-1 ml-1'>
                 <ProjectItem
-                    onClick={() => {}}
+                    onClick={search.onOpen}
                     label="Search"
                     icon={Search}
                     isSearch

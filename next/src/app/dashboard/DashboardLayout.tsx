@@ -3,6 +3,7 @@
 
 'use client'
 
+import { SearchCommand } from '@/components/search-command';
 import { useConvexAuth } from 'convex/react';
 import { redirect } from 'next/navigation';
 import React from 'react';
@@ -31,6 +32,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
   return (
     <div>
       <div className="dashboard-content">
+        <SearchCommand />
         {children}
       </div>
     </div>

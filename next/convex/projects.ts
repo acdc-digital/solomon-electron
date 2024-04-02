@@ -215,3 +215,26 @@ export const remove = mutation({
 		return project;
 	}
 });
+
+export const getSearch = query({
+	handler: async (ctx) => {
+		const identity = await ctx.auth.getUserIdentity();
+
+		if (!identity) {
+			throw new Error("User Not Authenticated.");
+		}
+
+		const userId = identity.subject;
+
+		const projects = await ctx.db
+		.query("projects")
+		.withIndex("by_user", (q) => q.eq("userId", userId))
+		.filter((q) =>
+		q.eq(q.field("isArchived"), false),
+		)
+		.order("desc")
+		.collect()
+		
+		return projects;
+	}
+});
