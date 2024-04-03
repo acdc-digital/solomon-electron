@@ -1,3 +1,6 @@
+// Project List Compoent 
+// /Users/matthewsimon/Documents/github/solomon-electron/solomon-electron/next/src/components/sidebar/Project-List.tsx
+
 "use client"
 
 import { useParams, useRouter } from "next/navigation";
@@ -13,11 +16,13 @@ interface ProjectListProps {
 	parentProjectId?: Id<"projects">;
 	level?: number;
 	data?: Doc<"projects">[];
+	onProjectSelect: (projectId: string) => void;
 }
 
 export const ProjectList = ({
 	parentProjectId,
-	level = 0
+	level = 0,
+	onProjectSelect
 }: ProjectListProps) => {
 	const params = useParams();
 	const router = useRouter();
@@ -34,9 +39,12 @@ export const ProjectList = ({
 		parentProject: parentProjectId
 	});
 
-	const onRedirect = (projectId: string) => {
-		router.push(`/projects/${projectId}`);
-	};
+	const onProjectSelection = (projectId: string) => {
+		// Call the handler with the project ID
+	 	onProjectSelect(projectId);
+
+		 console.log(onProjectSelect);
+	  };
 
 	if (projects === undefined) {
 		return (
@@ -72,7 +80,7 @@ export const ProjectList = ({
 				<div key={project._id}>
 					<ProjectItem
 					id={project._id}
-					onClick={() => onRedirect(project._id)}
+					onClick={() => onProjectSelection(project._id)}
 					label={project.title}
 					icon={FolderIcon}
 					projectIcon={project.icon}
@@ -85,6 +93,7 @@ export const ProjectList = ({
 						<ProjectList
 						parentProjectId={project._id}
 						level={level + 1}
+						onProjectSelect={onProjectSelect} // Make sure to pass this prop
 						/>
 					)}
 				</div>

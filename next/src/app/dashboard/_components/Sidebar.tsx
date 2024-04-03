@@ -17,7 +17,11 @@ import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover
 import { Trashbox } from '@/components/sidebar/Trashbox';
 import { useSearch } from '@/hooks/use-search';
 
-const Sidebar: React.FC = () => {
+interface SidebarProps {
+    onProjectSelect: (projectId: string) => void;
+  }  
+
+const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
     const search = useSearch();
 
     // State to toggle the sidebar width
@@ -67,12 +71,14 @@ const Sidebar: React.FC = () => {
                     label="New Project"
                     icon={PlusCircle}
                     />
+
                     {/* <ProjectItem
                     href="/dashboard"
                     label="Collapse All"
                     icon={RefreshCcw}
                     /> */}
                     <div>
+
                     <Separator
                     className='mt-4'
                     />
@@ -81,7 +87,7 @@ const Sidebar: React.FC = () => {
 
             {/* Sidebar content goes here */}
             <div className='flex flex-grow flex-col'>
-                <ProjectList />
+                <ProjectList onProjectSelect={onProjectSelect}/>
                 <div className='mt-auto mb-3'>
                 <Popover>
                     <PopoverTrigger className='w-full mt-4 ml-1'>

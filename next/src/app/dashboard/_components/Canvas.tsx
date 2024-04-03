@@ -6,30 +6,38 @@
 import React, { useState } from 'react';
 
 import CanvasHeader from '@/components/canvas/Canvasheader';
-import Admin from '@/components/canvas/Admin'; 
-import Notes from '@/components/canvas/Projects';
-import Files from '@/components/canvas/Files'; 
-import Tasks from '@/components/canvas/Tasks';
+import Admin from '@/components/canvas/(Admin)/Admin'; 
+import Projects from '@/components/canvas/(Projects)/Projects'
+import Files from '@/components/canvas/(Files)/Files'; 
+import Tasks from '@/components/canvas/(Tasks)/Tasks';
 
-const Canvas: React.FC = () => {
+interface CanvasProps {
+    activeProjectId: string | null;
+  }  
+
+  const Canvas: React.FC<CanvasProps> = ({ activeProjectId }) => {
     const [activeComponent, setActiveComponent] = useState('Admin'); // Default to Admin
+
+    const handleProjectSelection = (projectId: string) => {
+        setActiveComponent('Projects');
+    };
 
     const renderComponent = () => {
         switch(activeComponent) {
             case 'Admin': return <Admin />;
-            case 'Notes': return <Notes />;
             case 'Files': return <Files />;
+            case 'Projects': return <Projects projectId={activeProjectId}/>;
             case 'Tasks': return <Tasks />;
             default: return <Admin />; // Default case
         }
     };
 
     return (
-            <div className='flex flex-col flex-grow bg-[#FFF] overflow-hidden'>
+            <div className='flex flex-col flex-grow bg-[#FFF] overflow-hidden dark:bg-neutral-200'>
                 <CanvasHeader
                 title="Canvas"
                 onAdminClick={() => setActiveComponent('Admin')}
-                onProjectsClick={() => setActiveComponent('Notes')}
+                onProjectsClick={() => setActiveComponent('Projects')}
                 onFilesClick={() => setActiveComponent('Files')}
                 onTasksClick={() => setActiveComponent('Tasks')}
                 /> 

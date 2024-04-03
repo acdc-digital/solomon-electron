@@ -4,22 +4,22 @@ import React from "react";
 import { useUser } from "@clerk/clerk-react";
 
 import Image from "next/image";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { PlusCircle } from "lucide-react";
 
-const Tasks = () => {
+const Admin = () => {
   const { user } = useUser();
 
   return (
     <div className="mt-24 flex flex-col h-full items-center space-y-4 overflow-hidden">
       <h2 className="text-lg font-medium pb-4">
-        There are Currently No Tasks.
+        Welcome to {user?.firstName}&apos;s Admin Panel
       </h2>
 
      <Image
-     src="/undraw_outer_space.svg"
-     height="350"
-     width="350"
+     src="/undraw_to_the_stars.svg"
+     height="400"
+     width="400"
      alt="To the moon."
      className="pb-4"
      />
@@ -35,4 +35,4 @@ const Tasks = () => {
   );
 }
 
-export default Tasks;
+export default Admin;
