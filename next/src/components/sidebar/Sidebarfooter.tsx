@@ -1,9 +1,11 @@
 import React from 'react';
 
-import { Settings } from 'lucide-react';
+import { Settings, Trash2Icon } from 'lucide-react';
 import { Button } from '../ui/button';
 import { ProjectItem } from '@/components/sidebar/ProjectItem';
 import { useSettings } from '@/hooks/use-settings';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
+import { Trashbox } from './Trashbox';
 
 const SidebarFooter: React.FC = () => {
     const settings = useSettings();
@@ -11,7 +13,18 @@ const SidebarFooter: React.FC = () => {
     return (
         <div className="border-t py-4 mt-auto">
             {/* Footer content goes here */}
-            <div className='mb-2 ml-1'>
+            <Popover>
+                <PopoverTrigger className='w-full pl-1 mb-1'>
+                    <ProjectItem 
+                    label="Trashcan" 
+                    icon={Trash2Icon} />
+                </PopoverTrigger>
+                <PopoverContent className='ml-3 p-0 w-72'>
+                    <Trashbox />
+                </PopoverContent>
+            </Popover>
+
+            <div className='mb-3 ml-1'>
                 <ProjectItem
                     onClick={settings.onOpen}
                     label="Settings"

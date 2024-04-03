@@ -82,10 +82,10 @@ export const Trashbox = () => {
 				</p>
 				{filteredProjects?.map((project) => (
 					<div
+					className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between"
 					key={project._id}
 					role="button"
 					onClick={() => onClick(project._id)}
-					className="text-sm rounded-sm w-full hover:bg-primary/5 flex items-center text-primary justify-between"
 					>
 						<span className="ml-4 truncate pl-2">
 							{project.title}

@@ -55,7 +55,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
                 {isExpanded ? <ArrowLeftFromLine className='w-4 h-4'/> : <ArrowRightFromLine className='w-4 h-4'/> }
             </Button> 
             
-            {/* New Project Button */} 
+            {/* Search & New Project Buttons */} 
             <div className='mb-1 ml-1'>
                 <ProjectItem
                     onClick={search.onOpen}
@@ -65,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
                     />
             </div>
             
-            <div className='mb-4 ml-1'>
+            <div className='mb-1 ml-1'>
                 <ProjectItem
                     onClick={handleCreate}
                     label="New Project"
@@ -80,24 +80,14 @@ const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
                     <div>
 
                     <Separator
-                    className='mt-4'
+                    className='mt-3 mb-2'
                     />
                     </div>
             </div>
 
             {/* Sidebar content goes here */}
-            <div className='flex flex-grow flex-col'>
+            <div className='flex flex-grow flex-col overflow-y-auto'>
                 <ProjectList onProjectSelect={onProjectSelect}/>
-                <div className='mt-auto mb-3'>
-                <Popover>
-                    <PopoverTrigger className='w-full mt-4 ml-1'>
-                        <ProjectItem label="Trashcan" icon={Trash2Icon} />
-                    </PopoverTrigger>
-                    <PopoverContent className='ml-3 p-0 w-72'>
-                        <Trashbox />
-                    </PopoverContent>
-                </Popover>
-                </div>
             </div>
             {/* Sidebar Footer */}
             <SidebarFooter />

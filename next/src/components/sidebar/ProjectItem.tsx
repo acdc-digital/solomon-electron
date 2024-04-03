@@ -1,3 +1,6 @@
+// Project Item 
+// /Users/matthewsimon/Documents/github/solomon-electron/solomon-electron/next/src/components/sidebar/ProjectItem.tsx
+
 'use client';
 
 import { ChevronDown, ChevronRight, LucideIcon, MoreHorizontal, Plus, PlusCircle, Trash2Icon, TrashIcon } from "lucide-react";
@@ -10,7 +13,6 @@ import { useRouter } from "next/navigation"
 import { toast } from "sonner";
 import { DropdownMenu, DropdownMenuSeparator, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "../ui/dropdown-menu";
 import { useUser } from "@clerk/clerk-react";
-import { arch } from "os";
 
 interface ProjectItemProps {
 	id?: Id<"projects">;
