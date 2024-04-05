@@ -271,3 +271,40 @@ export const getById = query({
 	  return project;
 	}
   });
+
+  export const update = mutation({
+	args: {
+	  id: v.id("projects"),
+	  title: v.optional(v.string()),
+	  content: v.optional(v.string()),
+	  icon: v.optional(v.string()),
+	  isPublished: v.optional(v.boolean())
+	},
+	handler: async (ctx, args) => {
+	  const identity = await ctx.auth.getUserIdentity();
+  
+	  if (!identity) {
+		throw new Error("Unauthenticated");
+	  }
+  
+	  const userId = identity.subject;
+  
+	  const { id, ...rest } = args;
+  
+	  const existingProject = await ctx.db.get(args.id);
+  
+	  if (!existingProject) {
+		throw new Error("Not found");
+	  }
+  
+	  if (existingProject.userId !== userId) {
+		throw new Error("Unauthorized");
+	  }
+  
+	  const project = await ctx.db.patch(args.id, {
+		...rest,
+	  });
+  
+	  return project;
+	},
+  });
