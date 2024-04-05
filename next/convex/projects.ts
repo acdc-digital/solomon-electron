@@ -238,3 +238,36 @@ export const getSearch = query({
 		return projects;
 	}
 });
+
+export const getById = query({
+	args: { projectId: v.optional(v.id("projects")) },
+	handler: async (ctx, args) => {
+		if (!args.projectId) {
+			return null;
+		}
+		
+	  const identity = await ctx.auth.getUserIdentity();
+  
+	  const project = await ctx.db.get(args.projectId);
+  
+	  if (!project) {
+		throw new Error("Not found");
+	  }
+  
+	  if (project.isPublished && !project.isArchived) {
+		return project;
+	  }
+  
+	  if (!identity) {
+		throw new Error("Not authenticated");
+	  }
+  
+	  const userId = identity.subject;
+  
+	  if (project.userId !== userId) {
+		throw new Error("Unauthorized");
+	  }
+  
+	  return project;
+	}
+  });

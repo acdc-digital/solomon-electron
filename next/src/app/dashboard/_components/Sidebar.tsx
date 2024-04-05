@@ -1,5 +1,6 @@
 // Sidebar.tsx
 // Users/matthewsimon/Documents/GitHub/acdc.solomon-electron/solomon-electron/next/src/app/dashboard/_components/Sidebar.tsx
+
 'use client'
 
 import SidebarHeader from '@/components/sidebar/Sidebarheader';
@@ -86,9 +87,12 @@ const Sidebar: React.FC<SidebarProps> = ({ onProjectSelect }) => {
             </div>
 
             {/* Sidebar content goes here */}
-            <div className='flex flex-grow flex-col overflow-y-auto'>
-                <ProjectList onProjectSelect={onProjectSelect}/>
+            <div>
+                <div className='flex flex-grow flex-col overflow-y-auto'>
+                    <ProjectList onProjectSelect={onProjectSelect}/>
+                </div>
             </div>
+
             {/* Sidebar Footer */}
             <SidebarFooter />
         </div>
