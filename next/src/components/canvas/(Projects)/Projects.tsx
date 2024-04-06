@@ -3,14 +3,24 @@
 
 import { useParams } from "next/navigation";
 import { useEffect } from "react";
-import { useQuery } from "convex/react";
+import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { Title } from "./_components/Title";
+import { Editor } from "./_components/Editor";
 
 // Fetch project data based on projectId
 const Projects: React.FC<{ projectId: string | null }> = ({ projectId }) => {
-{/* const params = useParams(); */} 
+
+  const params = useParams(); 
+  const update = useMutation(api.projects.update);
+  const onChange = (content: string) => {
+    update({
+      id: params.documentId,
+      content
+    });
+  }
+
   const projectIdOrUndefined = projectId ?? undefined;
   const project = useQuery(api.projects.getById, { projectId: projectIdOrUndefined });
 
@@ -34,8 +44,18 @@ const Projects: React.FC<{ projectId: string | null }> = ({ projectId }) => {
         <p className="text-xs text-gray-400">
           Showing details for Convex project ID: {projectId}
         </p>
-          <div className="flex items-center justify-between">
-            <Title initialData={project} />
+          <div className="flex flex-col items-start justify-between">
+            <div className="p-1">
+            <Title 
+            initialData={project} 
+            />
+            </div>
+          </div>
+          <div>
+          <Editor
+            onChange={onChange}
+            initialContent={project.content}
+          /> 
           </div>
       </div>
     )
