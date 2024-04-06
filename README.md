@@ -1,15 +1,8 @@
 # Welcome to Solomon-electron: Incorporating AI w/ Project-Management
-<br>
 
 <h2>MITP: Management Information Training & Personalization</h2>
 
-[![Next.js](https://img.shields.io/badge/next.js-docs-blue)](https://nextjs.org/docs)   
-[![Electron](https://img.shields.io/badge/electron-docs-47848F)](https://www.electronjs.org/docs/latest/)   
-[![TypeScript](https://img.shields.io/badge/typescript-docs-3178C6)](https://www.typescriptlang.org/docs/)   
-[![TailwindCSS](https://img.shields.io/badge/tailwindcss-docs-06B6D4)](https://tailwindcss.com/docs/installation)   
-[![ShadCN](https://img.shields.io/badge/shadcn-docs-FF69B4)](https://ui.shadcn.com/docs)   
-[![Convex](https://img.shields.io/badge/convex-docs-FFA500)](https://docs.convex.dev/home)   
-[![OpenAI](https://img.shields.io/badge/openai-docs-412991)](https://platform.openai.com/docs/overview)   
+[![Next.js](https://img.shields.io/badge/next.js-docs-black)](https://nextjs.org/docs) [![Electron](https://img.shields.io/badge/electron-docs-47848F)](https://www.electronjs.org/docs/latest/) [![TypeScript](https://img.shields.io/badge/typescript-docs-3178C6)](https://www.typescriptlang.org/docs/) [![TailwindCSS](https://img.shields.io/badge/tailwindcss-docs-green)](https://tailwindcss.com/docs/installation) [![ShadCN](https://img.shields.io/badge/shadcn-docs-323232)](https://ui.shadcn.com/docs) [![Convex](https://img.shields.io/badge/convex-docs-FFA500)](https://docs.convex.dev/home) [![OpenAI](https://img.shields.io/badge/openai-docs-black)](https://platform.openai.com/docs/overview)   
 
 * Solomon-MITP: Empowering projects with artificial intellegence. 
 * MITP: Stands for Management Information Training & Personalization.
