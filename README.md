@@ -28,6 +28,6 @@ Medex aims to make healthcare information more accessible, understandable, and u
 <h2>Getting Started w/ Solomon-Electron 🚀🚀🚀</h2> 
 
 
-<h1>Final Words 🎉</h1>
+<h1>Final Words</h1>
 
 Welcome to the Solomon-Electron community! We're thrilled to have you here and we can't wait to see how you contribute to this project. 
