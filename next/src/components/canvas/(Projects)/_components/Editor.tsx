@@ -41,6 +41,7 @@ export const Editor = ({
             editor={editor}
             formattingToolbar={true}
             sideMenu={true}
+            editable={true}
             >
             </BlockNoteView>
         </div>
