@@ -93,10 +93,10 @@ export const ProjectItem = ({
 		role="button"
 		style={{
 			// Add Padding to Project Children  
-			paddingLeft: level ? `${(level * 12) + 12}px` : "12px" 
+			paddingLeft: level ? `${(level * 4) + 4}px` : "4px" 
 			}}
 		className={cn(
-			"ml-3 mr-5 mb-1 group border border-black rounded-md  min-h-[27px] text-sm py-1 pr-3 flex items-center font-medium hover:bg-primary/5",
+			"ml-3 mr-5 mb-1 group border border-gray-400 rounded-md  min-h-[27px] text-sm py-1 pr-3 flex items-center font-medium hover:bg-primary/5",
 			active && "bg-primary/5 text-primary"
 			)}
 		  >

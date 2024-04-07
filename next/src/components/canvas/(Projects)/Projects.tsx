@@ -44,13 +44,13 @@ const Projects: React.FC<{ projectId: string }> = ({ projectId }) => {
           Showing details for Convex project ID: {projectId}
         </p>
           <div className="flex flex-col items-start justify-between">
-            <div className="p-1">
+            <div className="m-3 rounded-lg border border-b">
             <Title 
             initialData={project} 
             />
             </div>
           </div>
-          <div>
+          <div className="ml-3 mr-6 rounded-lg border border-b">
           <TipTapEditor
           initialContent={project.content}
           onChange={onChange}
