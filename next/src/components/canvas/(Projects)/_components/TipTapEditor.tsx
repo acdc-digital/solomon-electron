@@ -3,7 +3,6 @@
 
 import { AlignHorizontalDistributeCenterIcon, BoldIcon, CodeIcon, Heading1Icon, Heading2Icon, Heading3Icon, ItalicIcon, ListIcon, ListOrderedIcon, PilcrowIcon, SplitIcon, Strikethrough, TextQuoteIcon } from 'lucide-react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
-import { Color } from '@tiptap/extension-color'
 
 import Text from '@tiptap/extension-text'
 import Paragraph from '@tiptap/extension-paragraph'
@@ -26,7 +25,7 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
 }) => {
   const editor = useEditor({
     extensions: [
-      TextStyle.configure({ types: [ListItem.name] }),
+      // TextStyle.configure({ types: [ListItem.name] }),
       StarterKit.configure({
       bulletList: {
         keepMarks: true,
