@@ -14,7 +14,11 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as ingest_load from "../ingest/load.js";
+import type * as langchain_db from "../langchain/db.js";
+import type * as messages from "../messages.js";
 import type * as projects from "../projects.js";
+import type * as serve from "../serve.js";
 
 /**
  * A utility for referencing Convex functions in your app's API.
@@ -25,7 +29,11 @@ import type * as projects from "../projects.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  "ingest/load": typeof ingest_load;
+  "langchain/db": typeof langchain_db;
+  messages: typeof messages;
   projects: typeof projects;
+  serve: typeof serve;
 }>;
 export declare const api: FilterApi<
   typeof fullApi,

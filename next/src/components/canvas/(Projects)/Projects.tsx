@@ -6,8 +6,8 @@ import { useMutation, useQuery } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 import { Id } from "../../../../convex/_generated/dataModel";
 import { Title } from "./_components/Title";
-import { Editor } from "./_components/Editor";
 import { TipTapEditor } from "./_components/TipTapEditor";
+import { FileTable } from "./_components/FileTable";
 
 // Fetch project data based on projectId
 const Projects: React.FC<{ projectId: string }> = ({ projectId }) => {
@@ -17,6 +17,12 @@ const Projects: React.FC<{ projectId: string }> = ({ projectId }) => {
     }
     // This effect runs when projectId changes
     }, [projectId]);
+
+  {/* const projectFiles = [
+    { filename: "report.pdf", type: "PDF", dateAdded: "2022-01-01" },
+    { filename: "design.sketch", type: "Sketch File", dateAdded: "2022-01-02" },
+      // More files
+    ]; */} 
 
   const update = useMutation(api.projects.update);
   const onChange = async (content: string) => {
@@ -40,16 +46,22 @@ const Projects: React.FC<{ projectId: string }> = ({ projectId }) => {
 
   return (
       <div className="flex flex-col">
-        <p className="text-xs text-gray-400">
+        <p className="ml-4 mt-0 text-xs text-gray-400">
           Showing details for Convex project ID: {projectId}
         </p>
           <div className="flex flex-col items-start justify-between">
             <div className="m-3 rounded-lg border border-b">
-            <Title 
+            <Title
             initialData={project} 
             />
             </div>
           </div>
+          {/* <div>
+          <FileTable
+            caption="Project Files"
+            files={projectFiles}
+          />
+          </div> */} 
           <div className="ml-3 mr-6 rounded-lg border border-b">
           <TipTapEditor
           initialContent={project.content}

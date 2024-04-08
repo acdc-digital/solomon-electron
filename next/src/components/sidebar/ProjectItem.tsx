@@ -97,6 +97,7 @@ export const ProjectItem = ({
 			}}
 		className={cn(
 			"ml-3 mr-5 mb-1 group border border-gray-400 rounded-md  min-h-[27px] text-sm py-1 pr-3 flex items-center font-medium hover:bg-primary/5",
+			// Change Background for Active Project
 			active && "bg-primary/5 text-primary"
 			)}
 		  >

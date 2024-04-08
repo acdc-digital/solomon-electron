@@ -3,12 +3,15 @@
 
 import React from 'react';
 
-const ChatLayout: React.FC = () => {
+// Assuming Message is a defined type/interface
+const ChatLayout: React.FC<{ messages: Message[] }> = ({ messages }) => {
     return (
         <div className="flex-grow overflow-hidden">
-            {/* This is where the messages will be displayed */}
-            {/* For now, it's just a placeholder */}
-            <div className="m-4">Ongoing conversation...</div>
+            <div className="m-4">
+                {messages.map((message, index) => (
+                    <div key={index}>{message.content}</div> // Customize this as needed
+                ))}
+            </div>
         </div>
     );
 };

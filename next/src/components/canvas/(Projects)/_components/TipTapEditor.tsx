@@ -5,6 +5,11 @@ import { AlignHorizontalDistributeCenterIcon, BoldIcon, CodeIcon, Heading1Icon, 
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import { Color } from '@tiptap/extension-color'
 
+import Text from '@tiptap/extension-text'
+import Paragraph from '@tiptap/extension-paragraph'
+import Heading from '@tiptap/extension-heading'
+import CodeBlock from '@tiptap/extension-code-block'
+import Gapcursor from '@tiptap/extension-gapcursor'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import StarterKit from '@tiptap/starter-kit';
@@ -25,11 +30,11 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
       StarterKit.configure({
       bulletList: {
         keepMarks: true,
-        keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+        keepAttributes: false, 
       },
       orderedList: {
         keepMarks: true,
-        keepAttributes: false, // TODO : Making this as `false` becase marks are not preserved when I try to preserve attrs, awaiting a bit of help
+        keepAttributes: false, 
       },
     }),
     ],
@@ -126,14 +131,14 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
           <PilcrowIcon size={20}/>
         </button>
 
-       {/* <button
+        <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
         className={editor.isActive('heading', { level: 1 }) ? 'is-active' : ''}
         >
-          <Heading1Icon />
+          H1
         </button>
 
-        <button
+        {/* <button
         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
         className={editor.isActive('heading', { level: 2 }) ? 'is-active' : ''}
         >

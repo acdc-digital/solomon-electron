@@ -1,4 +1,5 @@
 // ChatHeader.tsx
+// /Users/matthewsimon/Documents/github/solomon-electron/solomon-electron/next/src/components/chat/Chatheader.tsx
 
 'use client'
 
