@@ -6,6 +6,9 @@
 import React from "react";
 import { useUser } from "@clerk/clerk-react";
 import { Badge } from "@/components/ui/badge"
+import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
 
 const Docs = () => {
   const { user } = useUser();
@@ -13,17 +16,49 @@ const Docs = () => {
     return (
         <div>
             {/* Other documentation components */}
-            <div className="mt-5  mr-2 flex flex-row gap-x-3 justify-center">
-              <Badge>Next.js</Badge>
-              <Badge>Typescript</Badge>
-              <Badge>Tailwind</Badge>
-              <Badge>ShadCN</Badge>
-              <Badge>Convex DB</Badge>
-              <Badge>TipTap Editor</Badge>
-              <Badge>Clerk Auth</Badge>
-              <Badge>OpenAI Chat</Badge>
+            <div className="mt-8  mr-2 flex flex-row gap-x-3 justify-center">
+              <Badge variant="outline">Next.js</Badge>
+              <Badge variant="outline">Typescript</Badge>
+              <Badge variant="outline">Tailwind</Badge>
+              <Badge variant="outline">ShadCN</Badge>
+              <Badge variant="outline">Convex DB</Badge>
+              <Badge variant="outline">TipTap Editor</Badge>
+              <Badge variant="outline">Clerk Auth</Badge>
+              <Badge variant="outline">OpenAI Chat</Badge>
+            </div>
+            {/* Button Scroll Navbar */}
+            <div className="mt-6 ml-6 flex flex-row gap-x-4">
+              <Button
+                className="border border-gray-600 text-gray-700" 
+                variant="secondary">
+                Top-Level
+              </Button>
+              <Button
+                className="border border-gray-600 text-gray-700" 
+                variant="secondary">
+                Sidebar
+              </Button>
+              <Button
+                className="border border-gray-600 text-gray-700" 
+                variant="secondary">
+                Canvas
+              </Button>
+              <Button
+                className="border border-gray-600 text-gray-700" 
+                variant="secondary">
+                Chat
+              </Button>
             </div>
             {/* More components or documentation sections */}
+            <div className="mt-8 ml-8 flex flex-col items-start">
+            <Image
+            src="/Excal-TopLevelFiles.png"
+            height="650"
+            width="650"
+            alt="Top level file organization."
+            className="pb-4"
+            />
+            </div>
         </div>
     );
 }

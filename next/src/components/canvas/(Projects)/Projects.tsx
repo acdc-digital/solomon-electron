@@ -18,7 +18,7 @@ const Projects: React.FC<{ projectId: string }> = ({ projectId }) => {
     // This effect runs when projectId changes
     }, [projectId]);
 
-  {/* const projectFiles = [
+    {/* const projectFiles = [
     { filename: "report.pdf", type: "PDF", dateAdded: "2022-01-01" },
     { filename: "design.sketch", type: "Sketch File", dateAdded: "2022-01-02" },
       // More files
