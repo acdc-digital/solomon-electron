@@ -36,6 +36,15 @@ const Projects: React.FC<{ projectId: string }> = ({ projectId }) => {
   const projectIdOrUndefined = projectId ?? undefined;
   const project = useQuery(api.projects.getById, { projectId: projectIdOrUndefined as Id<"projects"> | undefined });
 
+    if (!projectId) {
+      // No project ID is set, so display a message
+      return (
+        <div className="flex items-center justify-center h-full">
+          <p>Select a project to continue.</p>
+        </div>
+      );
+    }
+
     if (project === undefined) {
       return <p>Loading...</p>
     }

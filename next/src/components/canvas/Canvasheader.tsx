@@ -15,40 +15,50 @@ const CanvasHeader: React.FC<CanvasHeaderProps & {
 	onProjectsClick: () => void, 
 	onFilesClick: () => void, 
 	onTasksClick: () => void, 
-	}> = ({ title, onAdminClick, onProjectsClick, onFilesClick, onTasksClick }) => {
+	onDocsClick: () => void,
+	}> = ({ title, onAdminClick, onProjectsClick, onFilesClick, onTasksClick, onDocsClick }) => {
     // Modify your Button components to call the provided callbacks on click
     return (
-        <div className="px-4 py-1 border-b flex items-center bg-gray-50">
+        <div className="px-4 py-1 border-b flex flex-row items-center bg-gray-50">
 			<div className='flex m-2'>
 				<Button 
 					className='mr-2'
 					variant={"outline"} 
 					onClick={onAdminClick}>
-    				Admin
+					Admin
 				</Button>
 
 				<Button 
 					className='mr-2'
 					variant={"outline"} 
 					onClick={onFilesClick}>
-    				Files 
+					Files 
 				</Button>
 
 				<Button
 					className='mr-2' 
 					variant={"outline"} 
 					onClick={onProjectsClick}>
-    				Projects
+					Projects
 				</Button>
 
 				<Button 
+					className='mr-2'
 					variant={"outline"} 
 					onClick={onTasksClick}>
-    				Tasks
+					Tasks
 				</Button>
-			</div> 
-            {/* You can add more header content here, like buttons or status indicators */}
-        </div>
+			</div>
+				{/* Push the Docs button to the right */}
+				<div className='ml-auto mr-2'> 
+					<Button 
+						variant={"outline"} 
+						onClick={onDocsClick}>
+						Docs
+					</Button>
+				</div>
+		</div>
+
     );
 };
 

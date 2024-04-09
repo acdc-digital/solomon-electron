@@ -1,7 +1,7 @@
 // TipTap Editor 
 // /Users/matthewsimon/Documents/github/solomon-electron/solomon-electron/next/src/components/canvas/(Projects)/_components/TipTapEditor.tsx
 
-import { AlignHorizontalDistributeCenterIcon, BoldIcon, CodeIcon, Heading1Icon, Heading2Icon, Heading3Icon, ItalicIcon, ListIcon, ListOrderedIcon, PilcrowIcon, SplitIcon, Strikethrough, TextQuoteIcon } from 'lucide-react';
+import { AlignHorizontalDistributeCenterIcon, BoldIcon, CodeIcon, FolderIcon, Heading1Icon, Heading2Icon, Heading3Icon, ItalicIcon, ListIcon, ListOrderedIcon, PilcrowIcon, SplitIcon, Strikethrough, TextQuoteIcon } from 'lucide-react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 
 import Text from '@tiptap/extension-text'
@@ -13,6 +13,7 @@ import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import StarterKit from '@tiptap/starter-kit';
 import React from 'react';
+import { Button } from '@/components/ui/button';
 
 interface TipTapEditorProps {
   onChange: (content: string) => void;
@@ -57,7 +58,7 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
   return (
     <div>
       {/* Mini Nav */}
-      <div className="flex flex-row gap-x-4 rounded border-b bg-gray-50 p-2 pl-4 items-center">
+      <div className="flex flex-row gap-x-4 rounded border-b bg-gray-50 p-2 pl-4 py-1 items-center">
         
         <button
         onClick={() => editor.chain().focus().toggleBold().run()}
@@ -233,11 +234,20 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
         >
           redo
         </button> */}
+        <div className='flex justify-end w-full mr-4'>
+          <Button
+            className='text-gray-600'
+            variant="outline"
+            >
+            <FolderIcon className="mr-2 h-4 w-4" />  
+            Files
+          </Button>
+        </div>
       </div>
 
       <div 
         className='m-2'
-        style={{ height: 'calc(85vh - 85px)', overflowY: 'auto', overflowX: 'hidden' }}>
+        style={{ height: 'calc(83vh - 83px)', overflowY: 'auto', overflowX: 'hidden' }}>
         <EditorContent
           className='mt-2'
           editor={editor} />

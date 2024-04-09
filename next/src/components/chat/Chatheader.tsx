@@ -20,15 +20,15 @@ const ChatHeader: React.FC<ChatHeaderProps> = ({ title, avatarUrl, fallbackText 
     const { user } = useUser();
 
     return (
-        <div className="px-4 py-0 border-b flex items-center bg-gray-50">
+        <div className="px-4 py-3 border-b flex items-center bg-gray-50">
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <button className='flex gap-x-3 items-center text-sm p-3'>
+                    <button className='flex gap-x-3 items-center text-sm p-0'>
                         <Avatar className='border border-gray-300'>
                             <AvatarImage src={user?.imageUrl || avatarUrl} alt="User Avatar" />
                             <AvatarFallback>{fallbackText}</AvatarFallback>
                         </Avatar>
-                        <span className="text-start font-medium line-clamp-1">
+                        <span className="text-start font-medium text-sm line-clamp-1">
                             {user?.fullName || title}
                         </span>
                         <ChevronsLeftRight className='rotate-90 text-muted-foreground h-4 2-4'/>

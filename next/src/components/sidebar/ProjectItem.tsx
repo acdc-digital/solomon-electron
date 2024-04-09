@@ -179,7 +179,7 @@ ProjectItem.Skeleton = function ProjectItemSkeleton({ level }: {level?: number }
 		<div
 			className="flex gap-x-2 py-[3px]"
 			style={{
-			paddingLeft: level ? `${(level * 12) + 25}px` : "12px"
+			paddingLeft: level ? `${(level * 3) + 4}px` : "4px"
 		}}>
 			<Skeleton className="h-4 w-4" />
 			<Skeleton className="h-4 w-[30%]" />

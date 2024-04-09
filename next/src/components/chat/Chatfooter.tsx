@@ -78,7 +78,7 @@ const ChatFooter: React.FC<ChatFooterProps> = ({ sendMessage, isMobile }) => {
   };
 
   return (
-    <div className="p-3 flex justify-between w-full items-center gap-3">
+    <div className="p-3 flex justify-between w-full items-center gap-3 mb-1">
       {/* Additional functionality and icons can be added here */}
       {/* Input field and send button logic */}
       <AnimatePresence initial={false}>

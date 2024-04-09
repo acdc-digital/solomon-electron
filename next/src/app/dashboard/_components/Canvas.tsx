@@ -10,6 +10,7 @@ import Admin from '@/components/canvas/(Admin)/Admin';
 import Projects from '@/components/canvas/(Projects)/Projects'
 import Files from '@/components/canvas/(Files)/Files'; 
 import Tasks from '@/components/canvas/(Tasks)/Tasks';
+import Docs from '@/components/canvas/(Docs)/Docs';
 
 interface CanvasProps {
     activeProjectId: string | null;
@@ -28,6 +29,7 @@ interface CanvasProps {
             case 'Files': return <Files />;
             case 'Projects': return <Projects projectId={activeProjectId}/>;
             case 'Tasks': return <Tasks />;
+            case 'Docs': return <Docs />;
             default: return <Admin />; // Default case
         }
     };
@@ -40,6 +42,7 @@ interface CanvasProps {
                 onProjectsClick={() => setActiveComponent('Projects')}
                 onFilesClick={() => setActiveComponent('Files')}
                 onTasksClick={() => setActiveComponent('Tasks')}
+                onDocsClick={() => setActiveComponent('Docs')}
                 /> 
                 {renderComponent()}
             </div>
