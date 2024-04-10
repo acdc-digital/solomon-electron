@@ -4,7 +4,6 @@
 import React, { useState } from 'react';
 import ChatHeader from '@/components/chat/Chatheader';
 import ChatLayout from '@/components/chat/Chatlayout';
-import ChatFooter from '@/components/chat/Chatfooter';
 
 const Chat: React.FC = () => {
     const [messages, setMessages] = useState<Message[]>([]); // Assuming Message is a defined type/interface
@@ -17,8 +16,7 @@ const Chat: React.FC = () => {
     return (
         <div className='flex flex-col w-[27%] h-screen border-l'>
             <ChatHeader title="Chat" />
-            <ChatLayout messages={messages} />
-            <ChatFooter sendMessage={sendMessage} isMobile={false} /> {/* Adjust isMobile based on your needs */}
+            <ChatLayout />
         </div>
     );
 };

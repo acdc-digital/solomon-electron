@@ -15,6 +15,9 @@ const Docs = () => {
 
     return (
         <div>
+          <div className="ml-6 mt-6 flex flex-row items-center justify-start text-xl underline">
+            Solomon Docs
+          </div>
             {/* Other documentation components */}
             <div className="mt-8  mr-2 flex flex-row gap-x-3 justify-center">
               <Badge variant="outline">Next.js</Badge>
