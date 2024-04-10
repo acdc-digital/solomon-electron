@@ -3,6 +3,7 @@
 
 import { AlignHorizontalDistributeCenterIcon, BoldIcon, BoltIcon, BotIcon, BotMessageSquareIcon, CodeIcon, CogIcon, FolderIcon, Heading1Icon, Heading2Icon, Heading3Icon, ItalicIcon, ListIcon, ListOrderedIcon, PilcrowIcon, SplitIcon, Strikethrough, TextQuoteIcon } from 'lucide-react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
+import { Button } from '@/components/ui/button';
 
 import Text from '@tiptap/extension-text'
 import Paragraph from '@tiptap/extension-paragraph'
@@ -12,8 +13,10 @@ import Gapcursor from '@tiptap/extension-gapcursor'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
 import StarterKit from '@tiptap/starter-kit';
+
+import useChatStore from '@/lib/store/chatStore';
 import React from 'react';
-import { Button } from '@/components/ui/button';
+
 
 interface TipTapEditorProps {
   onChange: (content: string) => void;
@@ -44,6 +47,9 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
       onChange(content);
     },
   });
+
+  // Destructure activateChat from the store
+  const { activateChat } = useChatStore();
 
   React.useEffect(() => {
     return () => {
@@ -252,12 +258,13 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
           </Button>
 
           <Button
-            className='text-gray-600'
-            variant="outline"
-            >
-            <BotIcon className="mr-2 h-5 w-5" />  
-            Chat
-          </Button>
+          className='text-gray-600'
+          variant="outline"
+          onClick={() => activateChat()} 
+          >
+          <BotIcon className="mr-2 h-5 w-5" />
+          Chat
+        </Button>
         </div>
       </div>
 
