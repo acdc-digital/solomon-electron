@@ -13,7 +13,7 @@ export default function ChatLayout() {
 
     return (
         <div className='flex flex-col'>
-            <div className='m-4 bg-gray-100 rounded-xl h-[500px] border border-gray-400'>
+            <div className='m-4 bg-gray-100 rounded-xl h-[500px] border border-gray-400 overflow-y-auto'>
                 {entries?.map((entry) => {
                     return (
                         <div key={entry._id} className='flex flex-col gap-2 text-black p-2'>

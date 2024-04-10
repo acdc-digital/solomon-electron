@@ -1,7 +1,7 @@
 // TipTap Editor 
 // /Users/matthewsimon/Documents/github/solomon-electron/solomon-electron/next/src/components/canvas/(Projects)/_components/TipTapEditor.tsx
 
-import { AlignHorizontalDistributeCenterIcon, BoldIcon, CodeIcon, FolderIcon, Heading1Icon, Heading2Icon, Heading3Icon, ItalicIcon, ListIcon, ListOrderedIcon, PilcrowIcon, SplitIcon, Strikethrough, TextQuoteIcon } from 'lucide-react';
+import { AlignHorizontalDistributeCenterIcon, BoldIcon, BoltIcon, BotIcon, BotMessageSquareIcon, CodeIcon, CogIcon, FolderIcon, Heading1Icon, Heading2Icon, Heading3Icon, ItalicIcon, ListIcon, ListOrderedIcon, PilcrowIcon, SplitIcon, Strikethrough, TextQuoteIcon } from 'lucide-react';
 import { useEditor, EditorContent, Editor } from '@tiptap/react';
 
 import Text from '@tiptap/extension-text'
@@ -234,13 +234,29 @@ export const TipTapEditor: React.FC<TipTapEditorProps> = ({
         >
           redo
         </button> */}
-        <div className='flex justify-end w-full mr-4'>
+        <div className='flex justify-end gap-x-2 w-full mr-4'>
+        <Button
+            className='text-gray-600'
+            variant="outline"
+            >
+            <BoltIcon className="mr-2 h-4 w-4" />  
+            Editor
+          </Button>
+
           <Button
             className='text-gray-600'
             variant="outline"
             >
             <FolderIcon className="mr-2 h-4 w-4" />  
             Files
+          </Button>
+
+          <Button
+            className='text-gray-600'
+            variant="outline"
+            >
+            <BotIcon className="mr-2 h-5 w-5" />  
+            Chat
           </Button>
         </div>
       </div>
