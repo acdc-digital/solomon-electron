@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Solomon-Desktop",
-  description: "A new way to useArtficial intellegence within your wokstation.",
+  description: "A new way to use Artficial intellegence within your wokstation.",
   /*icons: {
     icon: [
       {
