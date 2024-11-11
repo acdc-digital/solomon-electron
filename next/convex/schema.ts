@@ -14,6 +14,7 @@ export default defineSchema({
     content: v.optional(v.string()),
     icon: v.optional(v.string()),
     isPublished: v.boolean(),
+    embeddings: v.optional(v.array(v.number())),
   })
   .index("by_user", ["userId"])
   .index("by_user_parent", ["userId", "parentProject"]),

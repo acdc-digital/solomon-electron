@@ -10,7 +10,7 @@ export default function ChatLayout() {
     const { isChatActive } = useChatStore(); // Access the chat visibility state
 
     return (
-        <div className='flex flex-col items-center justify-center h-full'>
+        <div className='flex flex-col items-center h-full mt-4'>
             {isChatActive ? (
                 <Chat />
             ) : (
